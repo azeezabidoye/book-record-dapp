@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/BookRecord.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.24;\n\ncontract BookRecord {\n    // Events\n    event AddBook(address reader, uint256 id);\n    event SetCompleted(uint256 bookId, bool completed);\n\n    // The struct for new book\n    struct Book {\n        uint id;\n        string title;\n        uint year;\n        string author;\n        bool completed;\n    }\n\n    // Array of new books added by users\n    Book[] private bookList;\n\n    // Mapping of book Id to new users address adding new books under their names\n    mapping (uint256 => address) bookToReader;\n\n    function addBook(string memory title, uint256 year, string memory author, bool completed) external {\n        // Define a variable for the bookId\n        uint256 bookId = bookList.length;\n\n        // Add new book to books-array\n        bookList.push(Book(bookId, title, year, author, completed));\n\n        // Map new user to new book added\n        bookToReader[bookId] = msg.sender;\n\n        // Emit event for adding new book\n        emit AddBook(msg.sender, bookId);\n    }\n\n    function getBookList(bool completed) private view returns (Book[] memory) {\n        // Create an array to save finished books\n        Book[] memory temporary = new Book[](bookList.length);\n\n        // Define a counter variable to compare bookList and temporaryBooks arrays\n        uint256 counter = 0;\n\n        // Loop through the bookList array to filter completed books\n        for(uint256 i = 0; i < bookList.length; i++) {\n            // Check if the user address and the Completed books matches\n            if(bookToReader[i] == msg.sender && bookList[i].completed == completed) {\n                temporary[counter] = bookList[i];\n                counter++;\n            }\n        }\n\n        // Create a new array to save the compared/matched results\n        Book[] memory result = new Book[](counter);\n        \n        // Loop through the counter array to fetch matching results of reader and books\n        for (uint256 i = 0; i < counter; i++) {\n            result[i] = temporary[i];\n        }\n        return result;\n    }\n\n    function getCompletedBooks() external view returns (Book[] memory) {\n        return getBookList(true);\n    }\n\n    function getUncompletedBooks() external  view returns (Book[] memory) {\n        return getBookList(false);\n    }\n\n    function setCompleted(uint256 bookId, bool completed) external {\n        if (bookToReader[bookId] == msg.sender) {\n            bookList[bookId].completed = completed;\n        }\n        emit SetCompleted(bookId, completed);\n    }\n}"
+    }
+  },
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
