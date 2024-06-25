@@ -13,7 +13,6 @@ module.exports = {
       url: INFURA_SEPOLIA_URL,
       accounts: [`0x${PRIVATE_KEY}`],
       chainId: 11155111,
-      blockConfirmations: 6,
     },
   },
   namedAccounts: {
