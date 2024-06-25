@@ -1061,6 +1061,11 @@
     "@nomicfoundation/solidity-analyzer-linux-x64-musl" "0.1.2"
     "@nomicfoundation/solidity-analyzer-win32-x64-msvc" "0.1.2"
 
+"@nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/hardhat-deploy-ethers/-/hardhat-deploy-ethers-0.4.2.tgz#10aa44ef806ec8cf3d67ad9692f3762ed965b5e7"
+  integrity sha512-AskNH/XRYYYqPT94MvO5s1yMi+/QvoNjS4oU5VcVqfDU99kgpGETl+uIYHIrSXtH5sy7J6gyVjpRMf4x0tjLSQ==
+
 "@rollup/rollup-android-arm-eabi@4.18.0":
   version "4.18.0"
   resolved "https://registry.yarnpkg.com/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.18.0.tgz#bbd0e616b2078cd2d68afc9824d1fadb2f2ffd27"
