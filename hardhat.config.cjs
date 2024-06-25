@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 require("hardhat-deploy");
+require("hardhat-gas-reporter");
 
 const { PRIVATE_KEY, INFURA_SEPOLIA_URL, ETHERSCAN_API_KEY } = process.env;
 
