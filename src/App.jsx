@@ -70,7 +70,7 @@ const BookRecord = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Book Record</h1>
       <div>
         <input
