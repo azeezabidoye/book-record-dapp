@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ethers, BrowserProvider } from "ethers";
+import "./App.css";
 import BookRecordAbi from "./artifacts/contracts/BookRecord.sol/BookRecord.json"; // Import the ABI of the contract
 
 const BookRecordAddress = "0x01615160e8f6e362B5a3a9bC22670a3aa59C2421"; // Replace with your contract address
