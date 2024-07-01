@@ -26,9 +26,6 @@ module.exports = {
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
   },
-  sourcify: {
-    enabled: true,
-  },
   gasReporter: {
     enabled: true,
     noColors: true,
