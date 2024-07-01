@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-verify");
 require("dotenv").config();
 require("hardhat-deploy");
 require("hardhat-gas-reporter");
@@ -24,6 +25,9 @@ module.exports = {
   },
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
+  },
+  sourcify: {
+    enabled: true,
   },
   gasReporter: {
     enabled: true,
