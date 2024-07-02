@@ -10,7 +10,7 @@ const verify = async (contractAddress, args) => {
     });
   } catch (e) {
     if (e.message.toLowerCase().includes("verify")) {
-      console.log("Already verified!");
+      console.log("Contract already verified!");
     } else {
       console.log(e);
     }
