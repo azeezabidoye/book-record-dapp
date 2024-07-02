@@ -3,9 +3,10 @@ const { verify } = require("../utils/verify.cjs");
 module.exports = async ({ getNamedAccounts, deployments }) => {
   const { deploy, log } = deployments;
   const { deployer } = await getNamedAccounts();
+  const args = [];
   const bookRecord = await deploy("BookRecord", {
     contract: "BookRecord",
-    args: [],
+    args: args,
     from: deployer,
     log: true, // Logs statements to console
   });
